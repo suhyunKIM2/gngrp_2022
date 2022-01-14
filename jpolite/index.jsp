@@ -145,8 +145,10 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
 
 #point { padding:0px 1px; position:relative; top: -2px; -moz-animation:mymove 1s ease infinite; -webkit-animation:mymove 1s ease infinite;  }
 .left_centent_box{margin-top:0 !important;top:0px !important;}
- body{background:#fff !important;}
+ body{background:#fff !important;overflow:auto !important;}
  .user_info_right{width:100% !important;float:none !important;text-align: center !important;}
+ .main_centent_box{background:#f7f7f7 !important;}
+ .left_centent_box,.right_centent_box{height:100% !important;overflow:hidden !important;}
 @-webkit-keyframes mymove 
 {
 0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}

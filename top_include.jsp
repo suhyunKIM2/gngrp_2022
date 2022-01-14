@@ -96,8 +96,7 @@ div#menu li.back {width:0 !important;height:0 !important;}
 .left_centent_box{    position: relative;
     top: 20px;
     margin-top: 0;
-    z-index: 9;}
-   
+    z-index: 3;}
 </style>
 <script src="/common/scripts/WebTree.js"></script>
 <script src="/common/scripts/common.js"></script>
@@ -2196,9 +2195,9 @@ if(!String.prototype.padStart) {
             </li>
         </ul>
         <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424")){ %>
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("suhyunzzang9")){ %>
             <style>
-            .left_centent_box{top:127px;}
+            .left_centent_box{top:127px;z-index:1;}
             </style>
             <ul class="user_info_right">     
             <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
@@ -2517,4 +2516,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>>>
+<!-- top End -->>>>>>>>>>>>>
