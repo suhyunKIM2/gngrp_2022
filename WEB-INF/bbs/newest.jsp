@@ -273,6 +273,7 @@ String weekDate = formatter.format(cal.getTime());				// 일주일전 날짜
 </script>
 <style>
 .ui-jqgrid .ui-jqgrid-htable th div{padding-right:24.5px;}
+font{color:#266fb5  !important;}
 </style>
 </head>
 <body style="overflow:hidden; background:#f2f2f2;">
