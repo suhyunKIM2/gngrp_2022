@@ -97,6 +97,8 @@ div#menu li.back {width:0 !important;height:0 !important;}
     top: 20px;
     margin-top: 0;
     z-index: 3;}
+.left_box_logo{margin-top:0 !important;}  
+.top_top_blank{width:80% !important;float:right;}
 </style>
 <script src="/common/scripts/WebTree.js"></script>
 <script src="/common/scripts/common.js"></script>
@@ -2195,7 +2197,7 @@ if(!String.prototype.padStart) {
             </li>
         </ul>
         <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("suhyunzzang9")){ %>
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") ){ %>
             <style>
             .left_centent_box{top:127px;z-index:1;}
             </style>
@@ -2516,4 +2518,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>>>>>
+<!-- top End -->>>>>>>>>>>>>>>>>

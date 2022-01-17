@@ -149,6 +149,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
  .user_info_right{width:100% !important;float:none !important;text-align: center !important;}
  .main_centent_box{background:#f7f7f7 !important;}
  .left_centent_box,.right_centent_box{height:100% !important;overflow:hidden !important;}
+ .birthDiv > table tr td{border-bottom:0 !important;}
 @-webkit-keyframes mymove 
 {
 0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
@@ -205,11 +206,10 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                     <div id="sche" style="float:right; width:48%;border-left: 1px solid #eee; height:156px;overflow: auto; overflow-x:hidden;">
                     </div>
                 </div>
-                
                 <!---- 금주생일자----->
                 <div class="left_box">
                     <h3>금주생일자</h3>
-                    <div id="birthDiv" class="birthDiv" style="border:1px solid #eee;margin:5% 0;">
+                    <div id="birthDiv" class="birthDiv" style="border:1px solid #d2cece;margin:5% 0;height:auto !important;min-height:95px;">
 	                 <table width=100% border="1" cellspacing="0" cellpadding="0"  class="birthDiv" style="overflow: auto;">
                         <tr height="100%">
                             <td align="center" valign="top" id="birthday">

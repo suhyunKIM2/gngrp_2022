@@ -454,7 +454,10 @@ $(document).ready(function () {
 		 -->
 		<%@ include file="/top_include.jsp"%>
 	</div>
-	
+	<style>
+    .top_top_blank {
+    width: 100% !important;}
+    </style>
 <!-- 	<style> -->
 <!-- 	.ui-layout-west {overflow-y:hidden; height:100%;} -->
 <!-- 	</style> -->
@@ -471,7 +474,7 @@ $(document).ready(function () {
         <!-- 좌측 메뉴 끝-->    
          
         <!-- 우측 메뉴 시작-->
-        <div class="right_centent_box">
+        <div class="right_centent_box" >
             <div class="ui-layout-center">
             <iframe id="if_list" name="if_list" width="100%" height="100%" frameborder="0" scrolling="1" src="about:blank">
             </iframe>
@@ -564,7 +567,8 @@ margin-top: 2px;
 .ui-layout-west ui-layout-pane {
 overflow: hidden;
 }
-
+body{height:100vh !important;}
+.main_centent_box{height:auto;}
 </style>
 
 </body>
