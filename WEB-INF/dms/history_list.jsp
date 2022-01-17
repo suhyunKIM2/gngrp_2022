@@ -290,7 +290,7 @@ $(document).ready(function(){
 			<img src="../common/images/bb01.gif" border="0"> <spring:message code="t.delete" text="삭제"/> </a>
 		<td> 
 		
-		<td width="400" class="DocuNo" align="right" style="padding-rightㄴ:5px; ">
+		<td width="400" class="DocuNo" align="right" style="padding-right:5px; ">
 
 			<%
 			//<form:option> 내부에 <spring:message> 를 사용할 수 없으므로 부득이 여기서 변수를 선언한다. 2011.08.17 김화중

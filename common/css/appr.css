@@ -1,0 +1,52 @@
+.table_main_box{width:80%;margin:0;padding:6% 10% 0;height:84%;background:#fff;}
+.td_le2 #userphoto{float:left;width:19%;max-width:75px;margin-right: 10px;margin-left: 15px;} 
+input[name="signfile"]{height:60px;line-height: 60px;float:left;}  
+.td_ce1 {
+    color: #000000;
+    border: 1px solid #e2e2e2;
+    padding: 2 2 2 4;
+    background-color: #f7f7f7;
+    line-height: 17pt;
+    text-align: center;
+}
+.file_input{width:71%;float:left;margin-top:14px;}
+.file_input label {max-width: 105px;
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    width:30%;
+    height:30px;
+    background:#777;
+    color:#fff;
+    text-align:center;
+    line-height:30px;
+}
+.file_input label input {
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+.file_input input[type=text] {
+    vertical-align:middle;
+    display:inline-block;
+    width:63%;
+    height:28px;
+    line-height:28px;
+    font-size:11px;
+    padding:0;
+    border:0;
+    border:1px solid #777;
+}
+.btn_save{    width: 150px;
+    margin: 5% auto;
+    text-align: center;
+    background: #266fb5;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    }

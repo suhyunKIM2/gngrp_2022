@@ -527,7 +527,9 @@ INPUT[type=checkbox]{vertical-align: middle;}
 		<div id="dataGridPager"></div>
 		<!-- <div id="dataGridPagerNumber" style="text-align:center;">Page Numbering</div> -->
 		<span id="errorDisplayer" style="color:red"></span>
-		
+<style>
+#dataGrid  tr.jqgrow td{text-align:left;}
+</style>
 </body>
 </html>
 
