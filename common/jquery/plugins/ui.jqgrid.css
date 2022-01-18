@@ -18,7 +18,7 @@
 
 .ui-jqgrid .ui-jqgrid-hdiv {border:0px;position: relative; margin: 0em;padding: 0em; overflow-x: hidden; overflow-y: auto; border-left: 0px none !important; border-top : 0px none !important; border-right : 0px none !important;}
 
-.ui-jqgrid .ui-jqgrid-hbox {/*float: left; */padding-right: 20px;}
+.ui-jqgrid .ui-jqgrid-hbox {/*float: left; */padding-right: 0;}
 
 .ui-jqgrid .ui-jqgrid-htable {table-layout:auto;margin:0em;display:inline-table; }
 
@@ -385,8 +385,8 @@ table,.ui-jqgrid .ui-jqgrid-view,.ui-jqgrid,.ui-jqgrid .ui-jqgrid-hdiv,.ui-jqgri
 .ui-jqgrid .ui-jqgrid-btable,.ui-jqgrid .ui-pg-table{table-layout: auto !important;width: 100% !important;}
 .ui-jqgrid .ui-pg-table{width:auto !important;margin: auto;}
 .ui-widget-content{background:#fff;}
-.ui-jqgrid tr.ui-row-ltr td:nth-child(10){text-align:center !important;padding-left:0;}
-.ui-jqgrid .ui-jqgrid-hbox{padding-right:0;}
+.ui-jqgrid tr.ui-row-ltr td:nth-child(10){text-align:left!important;padding-left:0;}
+#dataGrid_mailsize #jqgh_dataGrid_mailsize{text-align:left;}
 /*.ui-jqgrid tr.jqgrow td:nth-child(1){padding:3px 0px 0px 15px;}*/
 .ui-jqgrid .ui-jqgrid-htable th div{height:20px;}
 /*.ui-jqgrid tr.jqgrow td{padding: 1px 2px 0 9px;}*/
@@ -420,7 +420,7 @@ td.myPager a{background:#fff;color:#000;border:1px solid #fff;}
 .ui-jqgrid .ui-jqgrid-resize-ltr{margin:0;width: 0;}
 /*.ui-jqgrid tr.ui-row-ltr td:nth-child(3){width:220px !important;}*/
 /*.ui-jqgrid tr.ui-row-ltr td:nth-child(4),.ui-jqgrid tr.ui-row-ltr td:nth-child(5),.ui-jqgrid tr.ui-row-ltr td:nth-child(6),.ui-jqgrid tr.ui-row-ltr td:nth-child(7){width:50px !important;padding:0;}*/
-.ui-jqgrid tr.jqgrow td{padding:0;margin:0;padding-left: 4.5px !important;text-align: center;}
+.ui-jqgrid tr.jqgrow td{padding:0;margin:0;padding-left: 4.5px !important;text-align: left;}
 .ui-jqgrid .ui-jqgrid-htable th div img{}
 
 table{background-image: none !important;}

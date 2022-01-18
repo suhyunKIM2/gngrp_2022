@@ -469,6 +469,7 @@ function OnBoxNameKeyDown(e) {
 	
 <style>
 body {margin:0px; }
+.table_mail_padding td{padding:15px 0;}
 </style>
 	
 <body>
@@ -564,7 +565,7 @@ body {margin:0px; }
 	<tr> 
 		<td> 
 			<!-- 본문 DATA 목록 -->
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout: auto;" class="table_mail_padding">
 				<colgroup>
 					<col width="17%" style="word-break:break-all">
 					<col width="1">
@@ -628,7 +629,7 @@ body {margin:0px; }
 					<td nowrap class="td_ce">-</td>
 				</tr>
 				<tr>
-					<td height='1' bgcolor='c3c3c3' colspan=17></td>
+					<td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td>
 				</tr>
 				<%
 					//받은편지함 서브 트리
@@ -680,7 +681,7 @@ body {margin:0px; }
 					<td class="td_ce" nowrap><a href="javascript:OnClickOrder('<%=box.getID()%>','<%=box.getOrders() %>','mail')" class="br_tit_v">[<%=box.getOrders() %>]</a></td>
 				</tr>
 				<tr>
-					<td height='1' bgcolor='c3c3c3' colspan=17></td>
+					<td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td>
 				</tr>
 				<%} %>
 				<!-- 보낸 편지함 -->
@@ -726,7 +727,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td nowrap class="td_ce">-</td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<%
 					//보낸편지함 서브 트리
 					iter = mailboxes.iterator();
@@ -776,7 +777,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td class="td_ce" nowrap><a href="javascript:OnClickOrder('<%=box.getID()%>','<%=box.getOrders() %>','mail')" class="br_tit_v">[<%=box.getOrders() %>]</a></td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<%
 					}
 					alternating = !alternating;
@@ -825,7 +826,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td nowrap class="td_ce">-</td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<!-- 임시보관함 -->
 				<tr <%=(alternating) ? "bgcolor='#f9f9f9'" : "" %>>
 					<%
@@ -861,7 +862,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td nowrap class="td_ce">-</td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<tr <%=(alternating) ? "bgcolor='#f9f9f9'" : "" %>>
 					<%
 						summary = summaries.get(Mailbox.TRASH);
@@ -905,7 +906,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td nowrap class="td_ce">-</td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<%
 					//사내문서수신함 
 					NotificationSummary noteSummary = noteSsummaries.get(NoteBox.RECEIVEDS);
@@ -929,7 +930,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td nowrap class="td_ce">-</td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<%
 					alternating = !alternating;
 					//사내통신함 서브 트리
@@ -960,7 +961,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td class="td_ce" nowrap><a href="javascript:OnClickOrder('<%=datas.get("boxid") %>','<%=datas.get("orders")%>','note')" class="br_tit_v">[<%=datas.get("orders") %>]</a></td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 				<%
 						alternating = !alternating;
 						}
@@ -989,7 +990,7 @@ body {margin:0px; }
 					<td nowrap></td>
 					<td nowrap class="td_ce">-</td>
 				</tr>
-				<tr><td height='1' bgcolor='c3c3c3' colspan=17></td></tr>
+				<tr><td height='1' bgcolor='c3c3c3' colspan=17 style="padding:0;"></td></tr>
 			</table>
 			<!-- 본문 DATA 끝-->
 		</td>

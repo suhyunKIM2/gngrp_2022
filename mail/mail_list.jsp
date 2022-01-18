@@ -1461,16 +1461,16 @@ function setChangeMailbox(){
 		</select>
 		<input name="searchtext" class="fld_other ui-corner-all" style="padding:4px; border:1px solid #aaa;" value="<%=searchText%>" />
 		
-		<a href="#" class="btn btn-icon" onclick="gridReload();">
+		<a href="javascript:void(0)" class="btn btn-icon" onclick="gridReload();">
 			<span><span class="icon-search"></span><fmt:message key='mail.seach'/>
 		</span></a>&nbsp;
-		<a href="#" id="resetSearch" onclick="gridReset();" class="btn-red btn-icon" style="display:none;">
+		<a href="javascript:void(0)" id="resetSearch" onclick="gridReset();" class="btn-red btn-icon" style="display:none;">
 			<span><span class="icon-search"></span><fmt:message key="t.search.del"/><!-- 검색제거 -->&nbsp;
 		</span></a>
 	<!-- 	<a id="btn_detail_search" href="#" onclicks="showDetailSearch();" class="btn btn-icon"> -->
 	<!-- 		<span><span class="icon-search"></span>상세검색&nbsp;검색제거 -->
 	<!-- 	</span></a> --> 
-		<a id="btn_detail_search" href="#" onclicks="showDetailSearch();" class="btn-blue btn-icon">
+		<a id="btn_detail_search" href="javascript:void(0)" onclicks="showDetailSearch();" class="btn-blue btn-icon">
 			<span><span class="icon-search"></span><fmt:message key="mail.powersearch"/><!-- 상세검색-->&nbsp;<!-- 검색제거 -->
 		</span></a>
 	</div>
@@ -1497,7 +1497,7 @@ function setChangeMailbox(){
 				<input type="text" name="ipt_receiver" maxlength="100" style="ime-mode:active;heightd:15px;padding:4px;border:1px solid #abadb3;line-height:15px">
 			</td>
 			<td rowspan="5" valign="top">
-				<a href="#" class="btn btn-icon" onclick="goSearch();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="goSearch();">
 					<span>
 						<span class="icon-search"></span>
 						<span><fmt:message key='mail.seach'/></span>
@@ -1579,32 +1579,32 @@ function setChangeMailbox(){
 	<table id="mainListButton" width=100% border="0" cellspacing=0 cellpadding=0 class=mail_list_t style="height:35px;">
 		<tr>
 			<td width="*" style="padding:3px;">
-				<a href="#" class="btn btn-icon" onclick="goSubmit('NEW');">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="goSubmit('NEW');">
 					<span><span class="icon-mail-pencil"></span><fmt:message key="mail.new"/>&nbsp;<!-- 새메일 -->
 				</span></a>
 				
-				<a href="#" class="btn btn-icon" onclick="OnClickDelete();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnClickDelete();">
 					<span><span class="icon-delete"></span><fmt:message key="mail.delete"/>&nbsp;<!-- 삭제 -->
 				</span></a>
 				
 				<%	if (mainBoxID.equals("1")) { %>
-				<a href="#" class="btn btn-icon" onclick="OnClickMarker(1);">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnClickMarker(1);">
 					<span><span class="icon"></span><fmt:message key="mail.list.read"/><!-- 읽음표시-->&nbsp;
 				</span></a>&nbsp;
-				<a href="#" class="btn btn-icon" onclick="OnClickMarker(2);">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnClickMarker(2);">
 					<span><span class="icon"></span><fmt:message key="mail.list.unread"/><!-- 안읽음표시-->&nbsp;
 				</span></a>
 				<% } %>
 
 				<%	if (mailboxID == Mailbox.SPAM) { %>
-				<a href="#" class="btn btn-icon" onclick="OnSpamDelete();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnSpamDelete();">
 					<span><span class="icon"></span><fmt:message key="mail.unblock"/>&nbsp;<!-- 차단해제 -->
 				</span></a>
 				<% } %>
 				
 				
 				<%	if (mailboxID == Mailbox.TRASH) { %>
-				<a href="#" class="btn btn-icon" onclick="OnClickClearTrash();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnClickClearTrash();">
 					<span><span class="icon"></span><fmt:message key="mail.empty.trash"/>&nbsp;<!-- 휴지통비우기 -->
 				</span></a>
 				<% } %>
@@ -1613,7 +1613,7 @@ function setChangeMailbox(){
 				<select name="targetFolder" style="max-width:180px;"><option value="title">-----<fmt:message key="mail.select.mailbox"/>&nbsp;<!-- 편지함 선택 -->-----</option>
 					<%=selBoxes %>
 				</select>
-				<a href="#" class="btn btn-icon" onclick="OnClickMove();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnClickMove();">
 					<span><span class="icon-mail-move"></span><fmt:message key="mail.move.folder"/>&nbsp;<!-- 폴더 이동 -->
 				</span></a>
 				<% } %>
@@ -1622,18 +1622,18 @@ function setChangeMailbox(){
 					<span><span class="icon-mail-receive"></span><fmt:message key="mail.import.pop3"/>&nbsp;<!-- 외부메일(POP3)가져오기 -->
 				</span></a>
 				 --%>
-				<a href="#" class="btn btn-icon" onclick="OnClickSave();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="OnClickSave();">
 					<span><span class="icon-mail-download"></span><fmt:message key="mail.storage.pc"/>&nbsp;<!-- PC 보관 -->
 				</span></a>
 				
 				<%	if (mailboxID == Mailbox.OUTBOX) { %>
-				<a href="#" class="btn btn-icon" onclick="reMailSend();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="reMailSend();">
 					<span><span class="icon-mail-send"></span><fmt:message key="mail.redials"/>&nbsp;<!-- 재발신 -->
 				</span></a>
 				<% } %>
 				
 				<%	if (mailboxID == Mailbox.SPAM) { %>
-				<a href="#" class="btn btn-icon" onclick="goSpam();">
+				<a href="javascript:void(0)" class="btn btn-icon" onclick="goSpam();">
 					<span><span class="icon-config"></span><fmt:message key="mail.spamSetting"/>&nbsp;<!-- 스팸설정 -->
 				</span></a>
 				<% } %>
