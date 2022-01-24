@@ -529,6 +529,8 @@ INPUT[type=checkbox]{vertical-align: middle;}
 		<span id="errorDisplayer" style="color:red"></span>
 <style>
 #dataGrid  tr.jqgrow td{text-align:left;}
+.ui-jqgrid .ui-jqgrid-htable th#dataGrid_hotFlag{width:25px !important;}
+.ui-jqgrid .ui-jqgrid-htable th:nth-child(1) div{padding-left:0;}
 </style>
 </body>
 </html>

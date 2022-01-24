@@ -470,6 +470,7 @@ function OnBoxNameKeyDown(e) {
 <style>
 body {margin:0px; }
 .table_mail_padding td{padding:15px 0;}
+
 </style>
 	
 <body>

@@ -4,12 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="nek3.common.*" %>
 <%@ page import="nek3.domain.approval.*" %>
-
-<%!
+<%! 
     //각 경로 패스
     String sImagePath =  ApprDocCode.APPR_IMAGE_PATH  ;
     String sJsScriptPath =  ApprDocCode.APPR_JAVASCRIPT_PATH ;
@@ -34,13 +34,17 @@
 		return selectStr;
 	}
 %>
-<%
+<%	
+String sMenu = (String)request.getAttribute("menu");
+int iMenuId = Integer.parseInt(sMenu);
 
+String formName = (String)request.getAttribute("formName");
+if(formName.equals("")) formName = "전체문서";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<TITLE>임시문서목록</TITLE>
+<TITLE>내결재완료목록</TITLE>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%@ include file="../common/include.jquery.jsp"%>
@@ -57,45 +61,37 @@
 <link rel="stylesheet" href="/common/libs/dhtmlmodal/1.1/modal.css" type="text/css" />
 <script type="text/javascript" src="/common/libs/dhtmlmodal/1.1/modal.js"></script>
 
-<!-- css 
-<link rel=STYLESHEET type="text/css" href="<%= cssPath %>/list.css">
+<!-- 
+<link rel=stylesheet href="<%= cssPath %>/list.css" type="text/css">
 <link rel="STYLESHEET" type="text/css" href="<%= imgCssPath %>">
--->
-<!-- script -->
-<script src="<%= sJsScriptPath %>/appr_doc.js"></script>
+ -->
+<script src="<%= scriptPath %>/appr_doc.js"></script>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
-    function newDoc()
+    function watchDoc(appID, sType, sApprType)
     {
-        //parent.left.moveMenu('<%= ApprMenuId.ID_110_NUM %>') ; //메뉴 이동
+		var frm = document.getElementById("search");
+        //frm.apprId.value =  appID ;
+        //frm.apprno.value =  apprNo ;
+        //frm.cmd.value = "<%= ApprDocCode.APPR_EDIT %>" ;
+        //frm.action = "appr_finappr.jsp" ;
 
-        var frm = document.getElementById("search");
-    	$("#apprId").val("");
-    	$("#cmd").val("");
-    	
-        frm.action = "gianlist.htm" ;
-        frm.method = "post" ;
-        frm.submit() ;
-    }
-
-    function editDoc(appID, sType)
-    {
-    	var frm = document.getElementById("search");
-    	$("#apprId").val(appID);
-<%--     	$("#cmd").val("<%= ApprDocCode.APPR_EDIT %>"); --%>
-        frm.action = "preview.htm" ;
+        //frm.action = "appr_apprdoc.jsp" ;
         
-        //var url = "/approval/preview.htm?apprId="+ appID + "&cmd=<%= ApprDocCode.APPR_EDIT %>";
-        //var url_p = "/approval/preview.htm?apprId="+ appID + "&cmd=<%= ApprDocCode.APPR_EDIT %>";
-        var url = "/approval/imsidoc.htm?apprId="+ appID + "&cmd=<%= ApprDocCode.APPR_EDIT %>";
-        var url_p = "/approval/imsidoc.htm?apprId="+ appID + "&cmd=<%= ApprDocCode.APPR_EDIT %>";
+        if(sApprType=="7"){
+        	var url = "/approval/busi_apprdoc.jsp?apprId="+ appID + "&menu=<%=sMenu%>&cmd=<%= ApprDocCode.APPR_EDIT %>";
+        	var url_p = "/approval/busi_apprdoc.jsp?apprId="+ appID + "&menu=<%=sMenu%>&cmd=<%= ApprDocCode.APPR_EDIT %>";
+        }else{
+	        var url = "/approval/apprdoc.htm?apprId="+ appID + "&menu=<%=sMenu%>&cmd=<%= ApprDocCode.APPR_EDIT %>";
+	        var url_p = "/approval/apprdoc_preview.jsp?apprId="+ appID + "&menu=<%=sMenu%>&cmd=<%= ApprDocCode.APPR_EDIT %>";
+        }
         
-        /*
 		var fr_list = parent.document.getElementById("fr_list");
 		var fr_right = parent.document.getElementById("fr_preview_right");
 		var fr_bottom = parent.document.getElementById("fr_preview_bottom");
 		
+		/*
 		if ( v_type == 1 ) {
 			if ( fr_bottom.src == url_p ) {
 				OpenWindow( url, "", "820" , "550" );
@@ -114,61 +110,79 @@
 			//fr_right.src = "about:blank";
 			//fr_bottom.src = "about:blank";
 			OpenWindow( url, "", "820" , "550" );
-		}
+		}*/
+		
+		OpenWindow( url, "", winWidth , 610 );
+		//var objWin = OpenLayer(url, "전자결재", winWidth, winHeight,isWindowOpen);	//opt는 top, current
 		return;
-        */
-        
-        OpenWindow( url, "", winWidth , 610 );
-        //var objWin = OpenLayer(url, "전자결재", winWidth, winHeight,isWindowOpen);	//opt는 top, current
-		return;
-        
-				/*
+				
+		OpenWindow( url, "", "780" , "970" );
+		/*
+        <% //새창과 현화면에서 처리여부 결정 %>
         if ( sType == "<%= ApprDocCode.POP_CHECK %>" )
         {
-            mainForm.pop.value = "<%= ApprDocCode.POP_CHECK %>" ;
+            frm.pop.value = "<%= ApprDocCode.POP_CHECK %>" ; 
             ShowFormOpen();
-            frm.action = "./appr_apprdoc.jsp" ;
         }else {
-            //parent.left.moveMenu('<%= ApprMenuId.ID_110_NUM %>') ; //메뉴 이동
-            mainForm.pop.value = "" ;
-            mainForm.target = "_self";
-            frm.action = "./appr_imsidoc.jsp" ;
+            frm.pop.value = "" ; 
+            frm.target = "_self";
         }
-        frm.method = "post" ;
+        frm.method = "get" ; 
         frm.submit() ;
         */
     }
 
-    function findDocument(){
-		var searchKey = $("#searchKey").val();
-		var searchValue = $("#searchValue").val();
-		if($.trim(searchValue) == ""){
-			alert("<spring:message code='v.query.required' text='검색어를 입력하여 주십시요!' />");
-			$("#searchValue").focus();
-			return false;
-		}
+    function newDoc()
+    {
+    	var frm = document.getElementById("search");
+    	$('#apprId').val("");
+    	$('#cmd').val("");
+        frm.action = "gianlist.htm" ;
+        frm.method = "get" ; 
+        frm.submit() ;
+    }
 
-		if ($.trim(searchKey) == "") {
-			alert("<spring:message code='v.queryType.requried' text='검색 분류를  선택하여 주십시요!' />");
-			$("#searchKey").focus();
-			return false;
-		}
-		
-		var reqUrl = "<c:url value="/approval/imsilist_json.htm?" />" + $("#search").serialize();
-		$("#dataGrid").jqGrid('setGridParam',{url:reqUrl,page:1}).trigger("reloadGrid");
-		$("#resetSearch").show();
-		return true;
-	}
-	
-	function resetSearch(){
-		$("#search").each(function(){
-			this.reset();
-		});
-		
-		var reqUrl = "<c:url value="/approval/imsilist_json.htm?apprId=${search.apprId}" />";
-		$("#dataGrid").jqGrid('setGridParam',{url:reqUrl,page:1}).trigger("reloadGrid");
-		$("#resetSearch").hide();
-	}
+    function goChangeMenu()
+    {
+    	var frm = document.getElementById("search");
+        frm.menu.value = frm.menuselected[frm.menuselected.selectedIndex].value
+        frm.target = "_self";  
+        frm.action = "returnlist.htm" ;
+        frm.method = "get" ; 
+        frm.submit() ;
+    }
+    
+    function findDocument(){
+    	var searchKey = $("#searchKey").val();
+    	var searchValue = $("#searchValue").val();
+    	if($.trim(searchValue) == ""){
+    		alert("<spring:message code='v.query.required' text='검색어를 입력하여 주십시요!' />");
+    		$("#searchValue").focus();
+    		return false;
+    	}
+
+    	if ($.trim(searchKey) == "") {
+    		alert("<spring:message code='v.queryType.requried' text='검색 분류를  선택하여 주십시요!' />");
+    		$("#searchKey").focus();
+    		return false;
+    	}
+    	
+    	var reqUrl = "<c:url value="/approval/returnlist_json.htm?" />" + $("#search").serialize();
+    	$("#dataGrid").jqGrid('setGridParam',{url:reqUrl,page:1}).trigger("reloadGrid");
+    	$("#resetSearch").show();
+    	return true;
+    }
+
+    function resetSearch(){
+    	$("#search").each(function(){
+    		this.reset();
+    	});
+    	
+    	var reqUrl = "<c:url value="/approval/returnlist_json.htm?menu=${search.menu}" />" + "&formId=<c:out value="${search.formId}" />";
+    	$("#dataGrid").jqGrid('setGridParam',{url:reqUrl,page:1}).trigger("reloadGrid");
+    	$("#resetSearch").hide();
+    }
+    
 //-->
 </SCRIPT>
 
@@ -197,18 +211,32 @@ $(document).ready(function(){
 	var grid = $("#dataGrid");
 	$("#dataGrid").jqGrid({        
 	    scroll: true,
-	   	url:"<c:url value="/approval/imsilist_json.htm" />",
+	   	url:"<c:url value="/approval/returnlist_json.htm" />?menu=<c:out value="${search.menu}" />&formId=<c:out value="${search.formId}" />",
 		datatype: "json",
-		//height: 400,
+		//height: '100%',
 		width: '100%',
-	   	colNames:['<spring:message code='t.subject' text='제목' />','<spring:message code='t.form.name' text='양식명' />','<spring:message code='t.createDate' text='저장일시' />','<spring:message code='t.preservePeriod' text='보존년한' />','<spring:message code='t.attached' text='첨부' />'],
+	   	colNames:[
+// 	   	          '<spring:message code='t.apprFlag' text='상태조회' />',
+	   	          '<spring:message code='t.flagType' text='구분' />',
+	   	       	  '<spring:message code='t.rejectUser' text='반려자' />',
+	   	    	  '<spring:message code='t.form.name' text='양식명' />',
+	   	          '<spring:message code='t.subject' text='제목' />',
+	   	          '<spring:message code='t.writer' text='기안자' />',
+	   	          '<spring:message code='t.createDate' text='기안일' />',
+	   	          '<spring:message code='t.finishDate' text='완료일' />',
+	   	          '<spring:message code='t.preservePeriod' text='보존년한' />',
+	   	          '<spring:message code='t.attached' text='첨부' />'],
 	   	colModel:[
-	   		{name:'subject',index:'subject', width:400},
-	   		{name:'formTitle',index:'formTitle', width:150},
-	   		{name:'createDate',index:'createDate', width:120, align:'center'},
-	   		{name:'preserveId',index:'preserveId', width:100, align:'center'},
-	   		{name:'attached',index:'attached', width:50, align:'center'},
-	   		//{name:'readCnt',index:'readCnt', width:200},
+// 			{name:'mFlag',index:'mFlag', width:80, align:'center'},
+			{name:'flagType',index:'flagType', width:50, align:'center'},
+			{name:'apprLastUser',index:'apprLastUser', width:80, align:'center'},
+			{name:'formTitle',index:'formTitle', width:150},
+	   		{name:'subject',index:'subject', width:300},
+	   		{name:'writer',index:'writer', width:80, align:'center'},
+	   		{name:'createDate',index:'createDate', width:120},
+	   		{name:'finishDate',index:'finishDate', width:120},
+	   		{name:'preserveId',index:'preserveId', width:60, align:'center'},
+	   		{name:'attached',index:'attached', width:30, align:'center'}
 		],	
 	   	rowNum:${userConfig.listPPage},
 	   	mtype: "GET",
@@ -232,12 +260,16 @@ $(document).ready(function(){
 	    	/* jqGrid PageNumbering Trick */
 	    	var i, myPageRefresh = function(e) {
 	            var newPage = $(e.target).text();
-	            grid.trigger("reloadGrid",[{page:newPage}]);
+	            $("#dataGrid").trigger("reloadGrid",[{page:newPage}]);
 	            e.preventDefault();
 	        };
 	        
 	    	/* MAX_PAGERS is Numbering Count. Public Variable : ex) 5 */
-	        jqGridNumbering( $("#dataGrid"), this, i, myPageRefresh );    	
+	        jqGridNumbering( $("#dataGrid"), this, i, myPageRefresh );
+	
+	        ShowUserInfoSet();
+	        
+	        listShowAttach();
 	    },
 	    onSelectRow:function(rowid){
 	        //alert(rowid);
@@ -257,11 +289,9 @@ $(document).ready(function(){
 	        alert(iCol);
 	        alert(cellcontent);
 	    }*/
-
 	});
-
 	$("#dataGrid").jqGrid('navGrid',"#dataGridPager",{search:false,edit:false,add:false,del:false});
-
+	
 	/* listResize */
 	gridResize("dataGrid");	
 
@@ -281,23 +311,70 @@ $(function() {
 		}
 	});
 });
-</script>
 
+/* 리스트 첨부 조회 */
+function listShowAttach() {
+    // Make sure to only match links to wikipedia with a rel tag
+   //var strUrl = "/bbs/download_attach_info.htm?";
+   var strUrl = "/approval/appr_download_attach_info.jsp?apprid=";
+	$('[name=listAttach]').each(function()
+	{
+		// We make use of the .each() loop to gain access to each element via the "this" keyword...
+		$(this).qtip(
+		{
+			content: {
+				// Set the text to an image HTML string with the correct src URL to the loading image you want to use
+				//text: '<img class="throbber" src="/projects/qtip/images/throbber.gif" alt="Loading..." />',
+				text: 'loading...',
+				ajax: {
+					//url: strUrl + $(this).attr('rel') // Use the rel attribute of each element for the url to load
+					url: strUrl + $(this).attr('rel') + "&menuid=<%=sMenu %>"
+				},
+				title: {
+					//text: 'Download Files - ' + $(this).text(), // Give the tooltip a title using each elements text
+					text: 'Download Files', // Give the tooltip a title using each elements text
+					button: true
+				}
+			},
+			position: {
+				at: 'left center', // Position the tooltip above the link
+				my: 'right center',
+				viewport: $(window), // Keep the tooltip on-screen at all times
+				effect: false // Disable positioning animation
+			},
+			show: {
+				event: 'click',
+				solo: true // Only show one tooltip at a time
+			},
+			hide: 'unfocus',
+			style: {
+				//classes: 'qtip-wiki qtip-light qtip-shadow'
+				classes: 'ui-tooltip-bootstrap ui-tooltip-shadow ui-tooltip-rounded',
+				width:300
+			}
+		})
+	})
+
+	// Make sure it doesn't follow the link when we click it
+	.click(function(event) { event.preventDefault(); });
+}
+</script>
 </head>
 
-<body style="overflow: hidden;">
+<body style="overflow:hidden;">
 <form:form commandName="search" onsubmit="return false;">
-<form:hidden path="apprId" />
+<form:hidden path="apprId"/>
+<form:hidden path="cmd"/>
+<form:hidden path="menu"/>
+<form:hidden path="formId"/>
 <form:hidden path="useNewWin" />
 <form:hidden path="useAjaxCall" />
-<form:hidden path="menu" />
-<input type="hidden" name="cmd" value="">
 <input type="hidden" name="pop">
 
-	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-image:url(../common/images/bg_teamtitleOn.gif); position:relative; lefts:-1px; height:37px; z-index:100;">
-	<tr>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-image:url(../common/images/bg_teamtitleOn.gif); position:relative; lefts:-1px; height:37px; z-index:100;">
+<tr>
 	<td width="60%" style="padding-left:5px; padding-top:5px; "><!-- <img src="../common/images/h3_ctbg.gif" border="0" align="absmiddle"> -->
-		<span class="ltitle"><img align="absmiddle" src="/common/images/icons/title-list-blue-folder2.png" /> <spring:message code="appr.menu.drafting" text="기안함"/> &nbsp;&gt;&nbsp; <spring:message code="appr.menu.tempBox" text="임시보관함"/> </span>
+		<span class="ltitle"><img align="absmiddle" src="/common/images/icons/title-list-blue-folder2.png" /> <spring:message code="appr.menu.approvalbox" text="결재함"/> &nbsp;&gt;&nbsp; <spring:message code="appr.menu.reject" text="반려된문서"/></span>
 	</td>
 	<td width="40%" align="right">
 <!-- 	n 개의 읽지않은 문서가 있습니다. -->
@@ -311,8 +388,12 @@ $(function() {
 <table width=100% border="0" cellspacing=0 cellpadding=0 style="height:35px;">
 	<tr>
 		<td width="*" style="padding-left:3px;">
+
+		<%if ( ! ((iMenuId<=ApprMenuId.ID_340_NUM_INT)&&(iMenuId >= ApprMenuId.ID_300_NUM_INT)) ) { %>
 			<a onclick="javascript:newDoc();" class="button gray medium">
 			<img src="../common/images/bb01.gif" border="0"> <spring:message code="main.Approval.New" text="결재문서 작성"/> </a>
+		<%} %>
+		
 		</td>
 		<td width="400" class="DocuNo" align="right" style="">
 			<%
@@ -335,7 +416,7 @@ $(function() {
 			<span id="resetSearch">
 			<a onclick="javascript:resetSearch();" class="button white medium">
 			<img src="../common/images/bb02.gif" border="0"> <spring:message code="t.search.del" text="검색제거" /> </a>
-			</span>						
+			</span>
 		</td>
 	</tr>
 </table>
@@ -348,9 +429,24 @@ $(function() {
 <span id="errorDisplayer" style="color:red"></span>
 <!-- 본문 DATA 끝 -->
 <style>
+.ui-jqgrid tr.jqgrow td:nth-last-child(4),.ui-jqgrid tr.jqgrow td:nth-last-child(3){text-align: center;}
 .ui-jqgrid .ui-jqgrid-htable th#dataGrid_formTitle{text-align: left;}
 .ui-jqgrid .ui-jqgrid-htable th#dataGrid_formTitle div{padding-left:13px;}
 </style>
 </form:form>
 </body>
 </html>
+
+<script>
+//t_set();
+
+//setVeiwPage("<%=viewType[0]%>");
+
+function ShowAttach( apprid,  menuid ) {
+	winx = window.event.x-265;
+	winy = window.event.y-40;
+	var url = "/approval/appr_download_attach_info.jsp?apprid=" + apprid +"&menuid=" + menuid;
+	xmlhttpRequest( "GET", url , "afterShowAttach" ) ;
+}
+
+</script>

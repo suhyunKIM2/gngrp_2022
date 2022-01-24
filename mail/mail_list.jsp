@@ -1409,7 +1409,9 @@ function setChangeMailbox(){
 	}
 </script>
 <!-- jqgrid 추가 -->
-
+<style>
+.ui-jqgrid tr.ui-row-ltr td:nth-child(10){text-align: left !important;}
+</style>
 </head>
 <body style="overflow:hidden; ">
 

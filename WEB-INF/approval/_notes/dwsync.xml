@@ -2,6 +2,21 @@
 <dwsync>
 <file name="imsidoc.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132868580994603080" remote="132868542600000000" Dst="0" />
 <file name="appr_relate.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132868584851915212" remote="132868546200000000" Dst="0" />
-<file name="imsilist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="imsilist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132870281595588402" remote="132870243000000000" Dst="0" />
 <file name="gianlist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132865372200000000" remote="132865372200000000" Dst="0" />
+<file name="docnumlist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132870209288106116" remote="132870171000000000" Dst="0" />
+<file name="docnumform.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="formdocview.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="formlist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="receivelist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132870259548132912" remote="132870220800000000" Dst="0" />
+<file name="receivelist_ori.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="preview.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132656508000000000" remote="132656508000000000" Dst="0" />
+<file name="apprdoc.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132656508000000000" remote="132656508000000000" Dst="0" />
+<file name="receive_history_pop.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="preview_in.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="inglist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132874731912712928" remote="132874693200000000" Dst="0" />
+<file name="apprdoc_view.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132656508000000000" remote="132656508000000000" Dst="0" />
+<file name="finlist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132870263591455427" remote="132870225000000000" Dst="0" />
+<file name="finhamlist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="returnlist.jsp" server="218.145.161.66//JNPLMS/groupwr/WebContent/" local="132870277895610386" remote="132870239400000000" Dst="0" />
 </dwsync>

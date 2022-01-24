@@ -385,7 +385,7 @@ table,.ui-jqgrid .ui-jqgrid-view,.ui-jqgrid,.ui-jqgrid .ui-jqgrid-hdiv,.ui-jqgri
 .ui-jqgrid .ui-jqgrid-btable,.ui-jqgrid .ui-pg-table{table-layout: auto !important;width: 100% !important;}
 .ui-jqgrid .ui-pg-table{width:auto !important;margin: auto;}
 .ui-widget-content{background:#fff;}
-.ui-jqgrid tr.ui-row-ltr td:nth-child(10){text-align:left!important;padding-left:0;}
+.ui-jqgrid tr.ui-row-ltr td:nth-child(10){padding-left:0;}
 #dataGrid_mailsize #jqgh_dataGrid_mailsize{text-align:left;}
 /*.ui-jqgrid tr.jqgrow td:nth-child(1){padding:3px 0px 0px 15px;}*/
 .ui-jqgrid .ui-jqgrid-htable th div{height:20px;}
